@@ -1,4 +1,4 @@
-package com.eaglesakura.gradle.android.props
+package com.eaglesakura.gradle.android.db
 
 import com.eaglesakura.tool.generator.CodeWriter
 

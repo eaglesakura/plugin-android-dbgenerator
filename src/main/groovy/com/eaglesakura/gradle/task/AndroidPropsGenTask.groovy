@@ -1,6 +1,6 @@
 package com.eaglesakura.gradle.task
 
-import com.eaglesakura.gradle.android.props.PropClassGenerator
+import com.eaglesakura.gradle.android.db.PropClassGenerator
 import com.eaglesakura.tool.log.Logger
 import com.eaglesakura.util.StringUtil
 import org.gradle.api.DefaultTask
