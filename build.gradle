@@ -113,7 +113,7 @@ uploadArchives {
             }
             
             dependency {
-                groupId = 'org.greenrobot:greendao-generator'
+                groupId = 'org.greenrobot'
                 artifactId = 'greendao-generator'
                 version = dependenceisVersion("de.greenrobot:greendao-generator",  "3.0.+")
                 scope = 'compile'
