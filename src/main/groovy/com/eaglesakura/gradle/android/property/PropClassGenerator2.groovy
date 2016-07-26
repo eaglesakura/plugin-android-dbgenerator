@@ -310,6 +310,7 @@ public class PropClassGenerator2 {
         INIT:
         {
             writer.writeLine("public ${className}(){ }");
+            writer.writeLine("public ${className}(com.eaglesakura.android.property.PropertyStore store) { setPropertyStore(store); }");
         }
 
         // アクセサメソッドを生成する
