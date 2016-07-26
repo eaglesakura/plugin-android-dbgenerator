@@ -2,6 +2,10 @@ package com.eaglesakura.gradle.task
 
 import org.gradle.testfixtures.ProjectBuilder
 
+/**
+ * このクラス群は非推奨となったため、テストも以後変更しない
+ */
+@Deprecated
 public class AndroidPropGenTaskTest extends GroovyTestCase {
 
     public void testGenClasses() {

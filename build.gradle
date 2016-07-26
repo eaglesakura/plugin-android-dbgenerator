@@ -1,8 +1,9 @@
 /**
  * 1.0.x  : release
  * 2.0.x  : support greendao 3.x
+ * 2.1.x  : プロパティクラス出力をPlugin化
  */
-def ARTIFACT_VERSION = "2.0"
+def ARTIFACT_VERSION = "2.1"
 def ARTIFACT_NAME = file(".").absoluteFile.name
 def ARTIFACT_INSTALL_TARGET = getArtifactInstallTarget()
 apply plugin: 'groovy'
@@ -33,10 +34,12 @@ dependencies {
     if (EGLIBRARY_COMPILE_LOCAL) {
         compile project(':eglibrary:simple-logger')
         compile project(':eglibrary:simple-utils')
+        compile project(':eglibrary:json-wrapper')
         compile project(':eglibrary:gradle-plugin-utils')
     } else {
         compile 'com.eaglesakura:simple-logger:1.1.+'
         compile 'com.eaglesakura:simple-utils:1.1.+'
+        compile 'com.eaglesakura:json-wrapper:1.0.+'
         compile 'com.eaglesakura:gradle-plugin-utils:1.0.+'
     }
 

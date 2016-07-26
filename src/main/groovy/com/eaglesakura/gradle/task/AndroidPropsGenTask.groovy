@@ -9,6 +9,7 @@ import org.gradle.api.tasks.TaskAction
 /**
  * 複数の設定ファイルを生成するためのTask
  */
+@Deprecated
 public class AndroidPropsGenTask extends DefaultTask {
     def superClass = '';
     def dbFileName = '';
