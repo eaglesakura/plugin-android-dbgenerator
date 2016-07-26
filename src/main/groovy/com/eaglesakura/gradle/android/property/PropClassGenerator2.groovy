@@ -12,6 +12,7 @@ public class PropClassGenerator2 {
     def className = "SampleSettingClass";
     def superClass = "com.eaglesakura.android.property.internal.GeneratedProperties"
     File outDirectory = null;
+    String classesOutputPath;
 
     /**
      * 頭の１文字目を大文字にする
@@ -58,7 +59,7 @@ public class PropClassGenerator2 {
      */
     public void addProperties(PropertyPluginSource src, PropertyPluginSource.Group group) {
         className = group.name;
-        outDirectory = new File(src.classesOutputPath);
+        classesOutputPath = src.classesOutputPath;
         classPackageName = src.packageName;
 
         for (def prop : group.getProperties()) {

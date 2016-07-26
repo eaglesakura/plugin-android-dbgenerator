@@ -31,6 +31,7 @@ public class AndroidPropertiesPlugin implements Plugin<Project> {
         void build() {
             // クラスを生成
             for (PropClassGenerator2 gen : project.props.generators) {
+                gen.outDirectory = project.file(gen.classesOutputPath)
                 gen.build();
             }
 
@@ -41,7 +42,7 @@ public class AndroidPropertiesPlugin implements Plugin<Project> {
                 model.groups = [];
                 model.groups += JSON.decode(JSON.encode(src.groups), PropertySource.Group[].class);
 
-                File propFile = new File(IOUtil.mkdirs(new File(src.configOutputPath)), src.configName);
+                File propFile = new File(IOUtil.mkdirs(project.file(src.configOutputPath)), src.configName);
                 propFile.write(JSON.encode(model));
             }
         }
