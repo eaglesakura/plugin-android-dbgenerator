@@ -4,6 +4,7 @@ import com.eaglesakura.android.property.model.PropertyPluginSource
 import com.eaglesakura.android.property.model.PropertySource;
 import com.eaglesakura.gradle.android.property.PropClassGenerator2
 import com.eaglesakura.json.JSON
+import com.eaglesakura.tool.log.Logger
 import com.eaglesakura.util.IOUtil
 import org.gradle.api.DefaultTask;
 import org.gradle.api.Plugin;
@@ -43,6 +44,7 @@ public class AndroidPropertiesPlugin implements Plugin<Project> {
                 model.groups += JSON.decode(JSON.encode(src.groups), PropertySource.Group[].class);
 
                 File propFile = new File(IOUtil.mkdirs(project.file(src.configOutputPath)), src.configName);
+                Logger.out("Generate Config[${propFile.absolutePath}]")
                 propFile.write(JSON.encode(model));
             }
         }

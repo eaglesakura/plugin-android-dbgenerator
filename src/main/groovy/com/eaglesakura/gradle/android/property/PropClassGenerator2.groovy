@@ -3,6 +3,7 @@ package com.eaglesakura.gradle.android.property
 import com.eaglesakura.android.property.model.PropertyPluginSource
 import com.eaglesakura.android.property.model.PropertySource
 import com.eaglesakura.tool.generator.CodeWriter
+import com.eaglesakura.tool.log.Logger
 
 /**
  * JSONのプロパティシートベースで書き出しを行う
@@ -266,6 +267,7 @@ public class PropClassGenerator2 {
 
     public void build() {
 
+        Logger.out("Generate Props[${className}] -> ${outDirectory.absolutePath}")
         File srcRootDirectory = outDirectory;
 
         FILE_CHECK:
@@ -313,10 +315,14 @@ public class PropClassGenerator2 {
         // アクセサメソッドを生成する
         Accr:
         {
+            Logger.pushIndent()
             for (Property prop : properties) {
+                Logger.out("Property [${prop.key}] = ${prop.defaultValue}")
+
                 writer.writeLine(prop.generateSetter());
                 writer.writeLine(prop.generateGetter());
             }
+            Logger.popIndent()
         }
         writer.popIndent(true).writeLine("}");
 
