@@ -1,5 +1,6 @@
 package com.eaglesakura.gradle.android.property
 
+import com.eaglesakura.android.property.model.PropertyPluginSource
 import com.eaglesakura.android.property.model.PropertySource
 import com.eaglesakura.tool.generator.CodeWriter
 
@@ -55,8 +56,11 @@ public class PropClassGenerator2 {
      * プロパティシートをJSONモデルから組み立てる
      * @param group
      */
-    public void addProperties(PropertySource.Group group) {
+    public void addProperties(PropertyPluginSource src, PropertyPluginSource.Group group) {
         className = group.name;
+        outDirectory = new File(src.classesOutputPath);
+        classPackageName = src.packageName;
+
         for (def prop : group.getProperties()) {
             switch (prop.type) {
                 case "String":

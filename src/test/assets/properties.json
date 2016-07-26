@@ -1,4 +1,7 @@
 {
+  "classesOutputPath": "src/test/gen/classes",
+  "configOutputPath": "src/test/gen/config",
+  "packageName": "com.example.unit.test",
   "groups": [
     {
       "name": "Sample",

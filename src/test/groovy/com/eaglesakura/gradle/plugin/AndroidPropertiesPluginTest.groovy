@@ -17,8 +17,6 @@ public class AndroidPropertiesPluginTest extends GroovyTestCase {
         def project = ProjectBuilder.builder().build();
         project.apply plugin: AndroidPropertiesPlugin
 
-        project.props.output(new File("src/test/gen"));
-
         project.tasks.androidGenerateProperties.execute();
     }
 
@@ -26,8 +24,7 @@ public class AndroidPropertiesPluginTest extends GroovyTestCase {
         def project = ProjectBuilder.builder().build();
         project.apply plugin: AndroidPropertiesPlugin
 
-        project.props.output(new File("src/test/gen"));
-        project.props.property(new File("src/test/assets/properties.json"), "com.example.unit.test")
+        project.props.property(new File("src/test/assets/properties.json"))
 
         project.tasks.androidGenerateProperties.execute();
     }
