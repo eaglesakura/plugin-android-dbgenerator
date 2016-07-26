@@ -110,6 +110,13 @@ uploadArchives {
 
             dependency {
                 groupId 'com.eaglesakura'
+                artifactId = 'json-wrapper'
+                version = dependenceisVersion("com.eaglesakura:json-wrapper", "1.+")
+                scope = 'compile'
+            }
+
+            dependency {
+                groupId 'com.eaglesakura'
                 artifactId = 'gradle-plugin-utils'
                 version = dependenceisVersion("com.eaglesakura:gradle-plugin-utils",  "1.+")
                 scope = 'compile'
