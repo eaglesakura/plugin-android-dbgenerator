@@ -39,9 +39,7 @@ public class AndroidPropertiesPlugin implements Plugin<Project> {
             // configに一括変換
             for (PropertyPluginSource src : project.props.sources) {
                 // テキストに変換 -> 再度Modelにすることで強制的に変換をかける
-                PropertySource model = new PropertySource();
-                model.groups = [];
-                model.groups += JSON.decode(JSON.encode(src.groups), PropertySource.Group[].class);
+                PropertySource model = JSON.decode(JSON.encode(src), PropertySource.class);
 
                 File propFile = new File(IOUtil.mkdirs(project.file(src.configOutputPath)), src.configName);
                 Logger.out("Generate Config[${propFile.absolutePath}]")
